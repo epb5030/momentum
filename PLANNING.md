@@ -731,20 +731,20 @@ momentum/
 
 | # | Question | Decision for 0.1 | Notes |
 |---|----------|------------------|-------|
-| 1 | **Web UI in MVP?** | **HTMX** (fast, low maintenance) | Can skip if time-constrained |
+| 1 | **Web UI in MVP?** | **HTMX** (fast, low maintenance) | ~2 days, `templ` templates, no Node build |
 | 2 | **CLI output format default?** | **table** (human-readable) | JSON/YAML/markdown via `--output` flag |
 | 3 | **Default task statuses?** | **Fixed: todo / in_progress / done** | Customizable in 0.2+ |
 | 4 | **Time tracking in MVP?** | **Skip** | Add in 0.2+ |
 | 5 | **Migration from Leantime?** | **Skip** (manual) | Script in 0.2+ |
 | 6 | **Config file format?** | **TOML** | viper supports all |
-| 9 | **Logging format?** | **JSON structured** (file), **pretty** (CLI) | |
-| 10 | **Rate limiting?** | **Per API key** (token bucket) | Per-user/IP in 0.2+ |
-| 11 | **Backup/restore CLI?** | **Skip** (pg_dump cron) | Add `momentum backup` in 0.2+ |
-| 12 | **Config file location?** | `~/.config/momentum/config.toml` | XDG compliant |
-| 13 | **Migration strategy for DB?** | `goose` up/down, versioned | |
-| 14 | **API versioning?** | URL prefix `/api/v1/` | |
-| 15 | **Secrets management?** | Env vars + `.env` file (dev) | |
-| 16 | **Health check endpoint?** | `GET /healthz` + `/readyz` | |
+| 7 | **Logging format?** | **JSON structured** (file), **pretty** (CLI) | |
+| 8 | **Rate limiting?** | **Per API key** (token bucket) | Per-user/IP in 0.2+ |
+| 9 | **Backup/restore CLI?** | **Skip** (pg_dump cron) | Add `momentum backup` in 0.2+ |
+| 10 | **Config file location?** | `~/.config/momentum/config.toml` | XDG compliant |
+| 11 | **Migration strategy for DB?** | `goose` up/down, versioned | |
+| 12 | **API versioning?** | URL prefix `/api/v1/` | |
+| 13 | **Secrets management?** | Env vars + `.env` file (dev) | |
+| 14 | **Health check endpoint?** | `GET /healthz` + `/readyz` | |
 
 ---
 
