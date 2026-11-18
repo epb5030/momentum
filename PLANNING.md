@@ -1,6 +1,7 @@
 # momentum — Project Planning (0.1 Draft)
 
 **Code name:** `momentum`
+**Display name:** **Project Momentum**
 **Vision:** AI-first cast tracking to-do application. Open source, self-hosted, CLI-first, API-heavy for agent interaction. No paid-gated features.
 
 ---
