@@ -9,8 +9,6 @@ import (
 
 	"github.com/google/uuid"
 	"github.com/jackc/pgx/v5/pgtype"
-	"pgtype"
-	"pgvector"
 )
 
 type AgentSession struct {
@@ -59,7 +57,7 @@ type Event struct {
 	AggregateType string             `json:"aggregate_type"`
 	AggregateID   uuid.UUID          `json:"aggregate_id"`
 	EventType     string             `json:"event_type"`
-	Payload       pgtype.JSONB       `json:"payload"`
+	Payload       []byte             `json:"payload"`
 	UserID        pgtype.UUID        `json:"user_id"`
 	Ip            *netip.Addr        `json:"ip"`
 	UserAgent     pgtype.Text        `json:"user_agent"`
@@ -74,7 +72,7 @@ type Plugin struct {
 	Description   pgtype.Text        `json:"description"`
 	Author        pgtype.Text        `json:"author"`
 	RepositoryUrl pgtype.Text        `json:"repository_url"`
-	Manifest      pgtype.JSONB       `json:"manifest"`
+	Manifest      []byte             `json:"manifest"`
 	WasmBytes     []byte             `json:"wasm_bytes"`
 	Enabled       pgtype.Bool        `json:"enabled"`
 	InstalledAt   pgtype.Timestamptz `json:"installed_at"`
@@ -140,7 +138,7 @@ type TaskDependency struct {
 
 type TaskEmbedding struct {
 	TaskID      uuid.UUID          `json:"task_id"`
-	Embedding   pgvector.Vector    `json:"embedding"`
+	Embedding   []float32          `json:"embedding"`
 	Model       string             `json:"model"`
 	ContentHash string             `json:"content_hash"`
 	CreatedAt   pgtype.Timestamptz `json:"created_at"`

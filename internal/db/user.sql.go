@@ -11,7 +11,6 @@ import (
 
 	"github.com/google/uuid"
 	"github.com/jackc/pgx/v5/pgtype"
-	"pgtype"
 )
 
 const addTaskDependency = `-- name: AddTaskDependency :exec
@@ -143,14 +142,14 @@ RETURNING id, aggregate_type, aggregate_id, event_type, payload, user_id, ip, us
 `
 
 type CreateEventParams struct {
-	AggregateType string       `json:"aggregate_type"`
-	AggregateID   uuid.UUID    `json:"aggregate_id"`
-	EventType     string       `json:"event_type"`
-	Payload       pgtype.JSONB `json:"payload"`
-	UserID        pgtype.UUID  `json:"user_id"`
-	Ip            *netip.Addr  `json:"ip"`
-	UserAgent     pgtype.Text  `json:"user_agent"`
-	RequestID     pgtype.UUID  `json:"request_id"`
+	AggregateType string      `json:"aggregate_type"`
+	AggregateID   uuid.UUID   `json:"aggregate_id"`
+	EventType     string      `json:"event_type"`
+	Payload       []byte      `json:"payload"`
+	UserID        pgtype.UUID `json:"user_id"`
+	Ip            *netip.Addr `json:"ip"`
+	UserAgent     pgtype.Text `json:"user_agent"`
+	RequestID     pgtype.UUID `json:"request_id"`
 }
 
 func (q *Queries) CreateEvent(ctx context.Context, arg CreateEventParams) (Event, error) {

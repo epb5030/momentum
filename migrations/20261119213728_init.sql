@@ -148,7 +148,7 @@ CREATE INDEX idx_events_aggregate ON events (aggregate_type, aggregate_id, creat
 -- AI: Task embeddings
 CREATE TABLE task_embeddings (
     task_id         UUID PRIMARY KEY REFERENCES tasks(id) ON DELETE CASCADE,
-    embedding       vector(1536) NOT NULL,
+    embedding       real[] NOT NULL,
     model           TEXT NOT NULL DEFAULT 'text-embedding-3-small',
     content_hash    TEXT NOT NULL,
     created_at      TIMESTAMPTZ DEFAULT now()
